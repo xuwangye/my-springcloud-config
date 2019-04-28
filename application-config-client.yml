@@ -1,0 +1,33 @@
+﻿spring:
+    profiles:
+        active:
+        - dev
+            
+---
+server:
+    port: 8001
+spring:
+    profiles: dev
+    application:
+        name: eureka-server-8001
+eureka:
+    client:
+        service-url:
+            defaultZone: http://eureka-register-7001:7001/eureka/
+    instance:
+        prefer-ip-address: true
+
+---
+server:
+    port: 8002
+spring:
+    profiles: test
+    application:
+        name: eureka-server-8002
+eureka:
+    client:
+        service-url:
+            defaultZone: http://eureka-register-7001:7001/eureka/
+    instance:
+        prefer-ip-address: true    
+# 请保存为UTF-8格式
